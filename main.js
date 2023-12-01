@@ -30,10 +30,18 @@ class ProductManager {
 		this.products.push(newProduct)
 	}
 	
-	getProduct() {
+	getProducts() {
 		console.log(this.products)
 	}
 
+	getProductById(id){
+		const product = this.products.find(item => item.id === id)
+		if(!product) {
+			console.error('Has dado con la misma nada, da un vistazo al vacio y retorna si quieres vivir.')
+		}else {
+			console.log('Diste con tu fortuna, bendiciones.')
+		}return
+	}
 }
 
 
