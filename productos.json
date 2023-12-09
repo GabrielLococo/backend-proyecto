@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "title": " pancito",
+    "description": "un pan riquisimo",
+    "price": 2000,
+    "img": "sin imagen",
+    "code": "abc123",
+    "stock": 50
+  }
+]
