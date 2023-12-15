@@ -3,7 +3,55 @@
     "id": 1,
     "title": " pancito",
     "description": "un pan riquisimo",
+    "price": 27000,
+    "img": "sin imagen",
+    "code": "abc123",
+    "stock": 50
+  },{
+    "id": 2,
+    "title": " fideos",
+    "description": "un pfideos riquisimo",
+    "price": 23000,
+    "img": "sin imagen",
+    "code": "abc123",
+    "stock": 50
+  },{
+    "id": 3,
+    "title": " arrocito",
+    "description": "un arrocito riquisimo",
     "price": 2000,
+    "img": "sin imagen",
+    "code": "abc123",
+    "stock": 50
+  },{
+    "id": 4,
+    "title": " harina",
+    "description": "una harina riquisimo",
+    "price": 21000,
+    "img": "sin imagen",
+    "code": "abc123",
+    "stock": 50
+  },{
+    "id": 5,
+    "title": " lentejas",
+    "description": "una lentejas riquisimo",
+    "price": 22000,
+    "img": "sin imagen",
+    "code": "abc123",
+    "stock": 50
+  },{
+    "id": 6,
+    "title": " aceitunas",
+    "description": "un aceituna riquisimo",
+    "price": 25000,
+    "img": "sin imagen",
+    "code": "abc123",
+    "stock": 50
+  },{
+    "id": 7,
+    "title": "palmito",
+    "description": "un palmito riquisimo",
+    "price": 24000,
     "img": "sin imagen",
     "code": "abc123",
     "stock": 50
