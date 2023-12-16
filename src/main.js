@@ -1,12 +1,11 @@
-const fs = require('fs').promises
-
+const fs = require('fs')
 class ProductManager {
 	static ultId = 0 
 
 	constructor(path)  {
 		this.path = path 
 		this.products = path ? this.leerArchivo() : [];
-	}
+	}	
 
 	
 	getProducts() {
@@ -27,19 +26,18 @@ class ProductManager {
 		}
 	}
 
-	async leerArchivo() {
+	leerArchivo() {
 		try {
-			const respuesta = await fs.readFile(this.path , 'utf-8')
-			const arrayProductos = JSON.parse(respuesta)
-			return arrayProductos
+			const respuesta = fs.readFileSync(this.path , 'utf-8')
+			return JSON.parse(respuesta) || []
 		} catch (error) {
 			console.log('error al leer un archivo', error)
 		}
 	}
 
-	async guardarArchivo(arrayProductos) {
+	guardarArchivo(arrayProductos) {
 		try {
-			await fs.writeFile(this.path , JSON.stringify(arrayProductos, null, 2))
+			fs.writeFileSync(this.path , JSON.stringify(arrayProductos, null, 2))
 		} catch (error) {
 			console.log('error al guardar el archivo', error)
 		}
