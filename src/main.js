@@ -4,7 +4,7 @@ class ProductManager {
 
 	constructor(path)  {
 		this.path = path 
-		this.products = path ? this.leerArchivo() : [];
+		this.products = path ? this.readProducts() : [];
 	}	
 
 	
@@ -14,10 +14,10 @@ class ProductManager {
 
 	async getProductById(id){
 		try {
-			const buscado = this.products.find(item => item.id == id)
+			const searched = this.products.find(item => item.id == id)
 			
-			if (buscado) {
-				return buscado
+			if (searched) {
+				return searched
 			}else {
 				console.log('producto no encontrado')
 			}
@@ -26,7 +26,7 @@ class ProductManager {
 		}
 	}
 
-	leerArchivo() {
+	readProducts() {
 		try {
 			const respuesta = fs.readFileSync(this.path , 'utf-8')
 			return JSON.parse(respuesta) || []
@@ -35,7 +35,7 @@ class ProductManager {
 		}
 	}
 
-	guardarArchivo(arrayProductos) {
+	saveProducts(arrayProductos) {
 		try {
 			fs.writeFileSync(this.path , JSON.stringify(arrayProductos, null, 2))
 		} catch (error) {
@@ -45,12 +45,12 @@ class ProductManager {
 
 	async updateProduct(id,productoActualizado) {
 		try {
-			const arrayProductos = await this.leerArchivo()
+			const arrayProductos = await this.readProducts()
 			const index = arrayProductos.findIndex(item => item.id === id)
 
 			if (index !== -1) {
 				arrayProductos.splice(index, 1, productoActualizado)
-				await this.guardarArchivo(arrayProductos)
+				await this.saveProducts(arrayProductos)
 			}else {
 				console.log('no se encontro el producto')
 			}
@@ -62,12 +62,12 @@ class ProductManager {
 
 	async deleteProduct(id) {
 		try {
-			const arrayProductos = await this.leerArchivo()
+			const arrayProductos = await this.readProducts()
 			const index = arrayProductos.findIndex(item => item.id === id)
 
 			if (index !== -1) {
 				arrayProductos.splice(index, 1)
-				await this.guardarArchivo(arrayProductos)
+				await this.saveProducts(arrayProductos)
 			}else {
 				console.log('no se encontro el producto')
 			}
